@@ -1,0 +1,139 @@
+!The main difference between compiled and interpreted languages lies in how the source code is translated and executed by a computer.
+Compiled Language:
+
+    Definition: In a compiled language, the entire source code is converted into machine code (binary code) by a compiler before execution.
+    Process: The compiler takes the source code and translates it into an executable file (e.g., .exe or binary). Once compiled, this file can be run directly by the computer without needing the source code.
+    Performance: Compiled programs are generally faster because the translation to machine code happens beforehand.
+    Error Handling: Compilation catches most errors before execution, so the program won't run unless it's free of syntax errors.
+    Examples: C, C++, Rust, Go, Swift.
+
+Interpreted Language:
+
+  →  Definition: In an interpreted language, the source code is executed line by line by an interpreter at runtime, without converting it into machine code beforehand.
+  →  Process: The interpreter reads the source code, translates it into intermediate code, and executes it on the fly.
+  →  Performance: Interpreted programs are usually slower compared to compiled ones, because the translation to machine code happens during execution.
+  →  Error Handling: Errors are detected during execution, meaning some parts of the code may be executed before an error is encountered.
+  →  Examples: Python, JavaScript, Ruby, PHP.
+
+Key Differences:
+Compiled Language	                                   Interpreted Language
+Translated into machine code before execution	       Translated and executed line by line at runtime
+Faster execution	                                       Slower execution
+Needs to be recompiled after code changes	           Can be modified and run immediately
+Errors are caught before execution	                   Errors are caught during execution
+
+Hybrid Approaches:
+Some languages, like Java, use a mix of both approaches. Java compiles the source code into bytecode (a form of intermediate code), which is then interpreted by the Java Virtual Machine (JVM) at runtime.
+
+
+
+!Python
+ Python is indeed an interpreted language, but the reason it doesn't print the first two lines before showing the error is because of how Python's interpreter works.
+   
+How Python's Interpreter Handles Code:
+
+When Python runs a script, it first compiles the entire file into an intermediate bytecode, checking for syntax errors before executing any part of it. So, if there is a syntax error anywhere in the code, Python will halt execution and throw the error before running any of the code. This is why the program doesn't print the first two lines.
+
+In your case, the error occurs at abc.printf("adad);, which is a syntax error. Since Python detects this during the parsing phase, it doesn't execute the preceding lines, even if they are valid.
+Example:
+
+print("Try programiz.pro")
+print("hello world!")
+abc.printf("adad);  # Syntax error here
+
+Python will stop execution because of the syntax error on the third line, and no lines will be executed.
+ 
+
+
+ 
+!JavaScript
+ In JavaScript, the behavior is slightly different from Python, but there are similarities.
+How JavaScript's Interpreter Handles Code:
+
+JavaScript is also an interpreted language, but its execution model is different from Python. JavaScript reads and executes code line by line in most environments, which means:
+
+    Runtime Errors: JavaScript will execute the lines before the error and then stop when it encounters a runtime error. If there are errors later in the script, it will still execute the code before the error.
+
+    Syntax Errors: Just like Python, if there's a syntax error (e.g., a missing parenthesis), JavaScript typically won't execute any part of the code, as the interpreter won't be able to parse the entire script correctly.
+
+Example:
+
+javascript
+
+console.log("Try programiz.pro");
+console.log("hello world!");
+abc.printf("adad"); // This is a runtime error (because `abc` is undefined)
+
+In this case:
+
+    The first two lines (console.log) will print to the console.
+    The error on the third line (abc.printf) is a runtime error (because abc is undefined), so the first two lines will still run, and then the error will stop further execution.
+
+For a syntax error:
+
+javascript
+
+console.log("Try programiz.pro");
+console.log("hello world!");
+console.log("Missing closing parenthesis" // Syntax error
+
+In this case:
+
+    No output will be printed, because JavaScript will encounter a syntax error at the third line, and it will stop execution entirely.
+
+Key Differences from Python:
+
+    Runtime Errors: In JavaScript, runtime errors (like calling an undefined function) occur only when that particular line is executed. So, JavaScript will print everything up to the error, unlike Python, which checks for errors before running.
+    Syntax Errors: Both Python and JavaScript behave similarly when it comes to syntax errors. If there's a syntax error, neither will execute the script.
+
+Example with a Runtime Error in JavaScript:
+
+javascript
+
+console.log("This will print");
+console.log("This will also print");
+undefinedFunction(); // This will throw a runtime error, but only after the first two lines are printed
+
+Output:
+
+perl
+
+This will print
+This will also print
+Uncaught ReferenceError: undefinedFunction is not defined
+
+So, in JavaScript, runtime errors don't stop the code from running before the error, but syntax errors prevent any code from running, similar to Python.
+
+!JavaScript is a Hybrid Language
+JavaScript is primarily considered an interpreted language, but modern JavaScript engines like Google's V8 (used in Chrome and Node.js) use a hybrid approach to improve performance. Here's a breakdown:
+Historically Interpreted:
+
+    In its early days, JavaScript was purely interpreted, meaning the JavaScript engine would read and execute the code line by line at runtime without prior compilation. This approach made JavaScript easier to use for dynamic and interactive web content but came with performance drawbacks.
+
+Modern Hybrid Approach:
+
+In modern times, most JavaScript engines, like V8 (Chrome), SpiderMonkey (Firefox), and JavaScriptCore (Safari), employ a Just-In-Time (JIT) compilation technique, which combines interpretation and compilation to boost performance.
+
+   → Interpretation: Initially, the JavaScript code is interpreted line by line, making it quick to start running.
+   → Just-In-Time Compilation (JIT): As the code runs, frequently executed sections (hot code) are identified, compiled into machine code (native code), and optimized on the fly. This improves the execution speed of JavaScript without needing a full compilation step beforehand.
+
+JavaScript Execution Flow:
+
+   → Parsing: The JavaScript engine parses the code and converts it into an Abstract Syntax Tree (AST).
+   → Bytecode Generation: It generates bytecode for interpretation. This is faster than directly interpreting the source code.
+   → JIT Compilation: If certain code is executed repeatedly, the engine compiles that portion into optimized machine code, allowing it to run much faster.
+
+Summary:
+
+   → JavaScript started as an interpreted language but now uses a hybrid model with JIT compilation for better performance.
+   → This combination allows JavaScript to start executing quickly (via interpretation) and later optimize performance (via JIT compilation).
+
+In essence, JavaScript is both interpreted and compiled depending on how the engine decides to handle different parts of the code at runtime.
+
+!Scripting languages are the purely interpreted language like shell.
+
+
+
+
+
+scopes: 27.32
