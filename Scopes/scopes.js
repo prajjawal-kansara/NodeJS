@@ -12,14 +12,24 @@ There are three types of scopes in JS-
 In a function scope, the visibilty of a variable/function is just inside the outer function
 
 3. Block
+Blockes are basically collection of statements
+In JS we use a pair of curly braces to declare a block.
+
+{
+...    variable declares inside the curly braces
+...
+...
+}
+
 */
 
 
-//Global Scope:
+// Global Scope
 var name = "cactus";                  //global variable
 function greet(){
     console.log("greetings!", name);
 
+    // Function Scope
     var x = 10;                      // variable is inside greet function(function variable) it id accessable everywhere inside the greet function 
     function test(){
         console.log("test", x);
@@ -31,6 +41,6 @@ function greet(){
 function fun(){
     console.log("have fun", name);
 }
-// console.log(x);                   Its give an error bcz we cannot call variale x outside the greet function  
+// console.log(x);                   It gives an error bcz we cannot call variale x outside the greet function  
 greet();
 fun();
