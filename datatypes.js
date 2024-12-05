@@ -1,5 +1,5 @@
 //? Datatypes: 
-//?undefined, null, booleans, string, symbol, number, and objects
+//? undefined, null, booleans, string, symbol, number, and objects
 
 // numbers
 console.log(12);

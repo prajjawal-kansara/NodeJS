@@ -36,6 +36,7 @@ console.log(5 << 2);
 console.log(5 >> 1);
 
 // unary operators
+console.log("Unary Operator:")
 let a = 10;                                //12
 let b = a++;                               //10
 let c = a++;                               //11
